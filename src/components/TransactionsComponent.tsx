@@ -1,3 +1,6 @@
+/*  The transaction component displays the transactions according to 
+the selected card and filter the results based on the amount*/
+
 import React, { useEffect, useMemo, useState } from "react";
 import { Card, getTransactions, Transaction } from "../data";
 
@@ -78,8 +81,9 @@ const TransactionComponent: React.FC<TransactionComponentProps> = ({
     <div>
       {loading && <p>Loading transactions...</p>}
       <AmountFilterContainer>
-        <AmountFilterLabel>Amount filter</AmountFilterLabel>
+        <AmountFilterLabel htmlFor="amount">Amount filter</AmountFilterLabel>
         <AmountFilterInput
+          id="amount"
           type="number"
           step="0.01"
           value={amountFilter}

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import TransactionsPage from './pages/TransactionPage';
+import TransactionsPage from './pages/TransactionsPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# Transactions Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+A transaction page was built where user can see theirs transactions based on private and/or business cards.
 
-In the project directory, you can run:
+## Implementation details
 
-### `yarn start`
+- TransactionsPage holds the CardComponent and the TransactionComponent rendering a selectedCard. With the help of the selectedCard state, the TransactionComponent will be rendered just if a card is selected.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- In the CardComponent, business and private cards are displayed. To display the transactions of a card, the first card of the cards array is displayed as default. The selected card is shown with a black border to make it easier to the user to identify which card is selected.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- The TransactionComponent shows the transactions based on the card the user selected and offers. The functionality of filtering transactions by the amount is implemented. The filteredTransactions was done with a useMemo to improve a bit the performance. Since the rerender of a component is not always predictable, the idea was to prevent unnecessary execution of the filter operation when the inputs did not change. To allow the user to see all transactions when they don't enter any value, a special handling for the empty string was added where an empty string is interpreted as 0.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ToDos and Improvements
 
-### `yarn build`
+- Responsive design 
+- Filter transaction by description
+- Check testing warnings
+- Add more test assertions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Typescript
+- React
+- styled components
+- React Testing Library
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instructions
 
-### `yarn eject`
+### Running application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Clone repository
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/ingriddorioschulze/web-transactions
+cd web-transactions
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2.  Install dependencies
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+yarn install
+```
 
-## Learn More
+3. Start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Running unit tests
+
+```bash
+yarn test
+```
+
+with :yellow_heart: by [Ingrid do Rio Schulze](https://github.com/ingriddorioschulze)
